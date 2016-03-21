@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="mainModule">
+<head>
+	<meta charset="utf-8">
+	<title>Primera pagina AngularJS</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js" ></script>
+	<script>
+		angular.module("mainModule",[])
+			.controller("FirstController", function($scope){
+				$scope.nombre = "Uriel";
+				/*
+				setTimeout(function(){
+					$scope.nombre = "Pan de Batalla";
+					console.log($scope.nombre);
+					$scope.$digest();
+				},3000)
+				*/
+				/*
+				setTimeout(function(){
+					$scope.$apply(function(){
+						$scope.nombre = "Pan de Batalla";
+						console.log($scope.nombre);
+					})
+				}, 3000);
+				*/
+				document.querySelector("#mi_botton").addEventListener("click",function(){
+					$scope.$apply(function() {
+						if($scope.nombre === "Uriel")
+							$scope.nombre = "Pan de Batalla";
+						else
+							$scope.nombre = "Uriel";
+						console.log($scope.nombre);
+					})
+				});
+			});
+	</script>
+</head>
+<body ng-controller="FirstController">
+	<h1>{{nombre}}</h1>
+	<button id="mi_botton">Haz click</button>
+</body>
+</html>
