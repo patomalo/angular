@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app>
+	<head>
+		<style>
+			.hover {
+				background-color: rgb(200,50,50);
+			}
+			.no-hover {
+				background-color: rgb(50,200,50);
+			}
+		</style>
+		<meta charset="utf-8">
+		<title>Primera pagina AngularJS</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js" ></script>
+	</head>
+	<body>
+		<button ng-mouseover="bandera = true" ng-mouseout="bandera = false">
+			Hover me
+		</button> <span ng-show="bandera">&lt;- click me</span>
+		<p>
+			{{bandera | json}}
+		</p>
+
+		<button ng-click="flag = !flag">
+			Click me
+		</button> <span ng-show="flag">&lt;- click me</span>
+		<p>
+			{{flag | json}}
+		</p>
+
+		<button ng-click="fla = !fla" ng-class="{'hover': fla, 'no-hover': !fla }">
+			Click me
+		</button> <span ng-show="fla">&lt;- click me</span>
+		<p>
+			{{ fla | json}}
+		</p>
+	</body>
+</html>
